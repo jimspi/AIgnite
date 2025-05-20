@@ -56,31 +56,136 @@
 </head>
 <body>
   <div class="card">
-    <h1>🎉 Here’s Your Complimentary AI Tip</h1>
+    <h1>🎉 Here’s Your Custom AI Tip</h1>
     <p class="tip" id="recommendation">Loading your insight...</p>
 
     <div class="paywall">
       <h2>🔓 Unlock Your Full AI Opportunity Map</h2>
-      <p>Get 7+ personalized recommendations, tool stack suggestions, ROI projections, and risk alerts tailored to your business.</p>
+      <p>We can teach you how to implement this tip and get other personalized recommendations, and growth projections tailored to your specific business.</p>
       <button onclick="alert('Redirect to payment - Stripe or Gumroad')">Unlock Full Report – $50</button>
     </div>
   </div>
 
   <script>
-    const industry = new URLSearchParams(window.location.search).get('industry');
-    const tips = {
-      healthcare: "Use AI to summarize and auto-tag patient intake forms into EHRs in real-time — saving front desk teams hours per week.",
-      education: "AI can auto-generate personalized learning paths for each student based on quiz performance and engagement — most schools don’t use this at all.",
-      retail: "Train an AI to generate SEO-optimized product descriptions using competitor benchmarks — most shops still write these manually.",
-      realestate: "AI can pre-qualify inbound buyer/seller leads through natural conversation before you even pick up the phone.",
-      marketing: "Use AI to instantly repurpose client content across formats (tweets → LinkedIn → blog) — most teams still do this manually.",
-      consulting: "AI can auto-generate discovery call summaries and proposals in your voice — you talk, it writes.",
-      nonprofit: "Use AI to convert handwritten stories or call transcripts into compelling donor-ready impact reports.",
-      finance: "AI can monitor transaction data and proactively flag anomalies, reducing manual reconciliation and audit prep.",
-      custom: "Most businesses don't use AI to track and categorize internal conversations (Slack, meetings, emails) into actionable tasks — but you can."
-    };
-    const tip = tips[industry] || "AI can help automate repetitive tasks and uncover hidden insights — and we’ll show you exactly how.";
-    document.getElementById("recommendation").innerText = tip;
-  </script>
+  const industry = new URLSearchParams(window.location.search).get('industry');
+
+  const tips = {
+    healthcare: [
+      "Auto-summarize patient intake forms into EHRs using GPT-based parsing.",
+      "Use AI to detect patterns in symptoms and recommend probable diagnoses.",
+      "Automate appointment reminders via AI-powered SMS/email bots.",
+      "Transcribe and summarize provider-patient conversations in real-time.",
+      "Use AI to flag billing inconsistencies before claim submission.",
+      "Chatbots to triage incoming patient questions 24/7.",
+      "Optimize medical inventory by predicting usage trends with AI.",
+      "Voice-to-chart AI tools to reduce documentation fatigue.",
+      "Use computer vision to auto-read test results (e.g., x-rays).",
+      "Train AI to analyze survey responses for patient satisfaction insights."
+    ],
+    education: [
+      "Generate individualized learning plans from student quiz results.",
+      "Summarize reading assignments for differentiated instruction.",
+      "AI can detect students at risk by analyzing engagement patterns.",
+      "Create lesson plans with generative AI tailored by grade and topic.",
+      "Transcribe and summarize lectures for student notes.",
+      "Use AI to auto-grade open-ended student writing with feedback.",
+      "Convert lectures into quiz questions for practice assessments.",
+      "AI chatbots for 24/7 homework assistance.",
+      "Auto-translate lessons for ESL students using AI.",
+      "Analyze curriculum for alignment with state standards."
+    ],
+    retail: [
+      "Generate SEO-optimized product listings from raw vendor data.",
+      "Predict inventory needs with AI demand forecasting.",
+      "Auto-create image captions and alt text for better accessibility + SEO.",
+      "Chatbots for answering FAQs and guiding product discovery.",
+      "Use AI to analyze returns and detect product quality issues.",
+      "Generate personalized emails using customer purchase history.",
+      "Use AI to test pricing sensitivity across different demographics.",
+      "Summarize customer reviews to highlight top feedback themes.",
+      "Auto-create product comparison tables from competitor sites.",
+      "Visual search tools: recommend similar products from an image upload."
+    ],
+    realestate: [
+      "Auto-screen leads through conversational AI before agent contact.",
+      "Generate dynamic listing descriptions from MLS data.",
+      "Summarize property showing feedback for sellers.",
+      "AI chatbots to answer listing questions instantly.",
+      "Predict pricing fluctuations in local markets using AI.",
+      "Auto-create video walkthroughs with voiceover from static photos.",
+      "Use AI to analyze neighborhood data and surface selling points.",
+      "Pre-fill disclosure documents using AI from inspection reports.",
+      "Use AI to generate outreach messages to potential sellers.",
+      "Convert property photos into branded social media posts automatically."
+    ],
+    marketing: [
+      "Auto-rewrite a single blog into posts for Twitter, LinkedIn, and email.",
+      "Use AI to A/B test ad headlines and landing page CTAs.",
+      "Analyze competitor ads and generate counter-positioned scripts.",
+      "Create full video ad scripts based on campaign goals.",
+      "AI chatbots to pre-qualify inbound leads on campaign landing pages.",
+      "Generate SEO briefs based on your customer queries and site structure.",
+      "Summarize influencer mentions and feedback using AI.",
+      "Auto-tag and sort user-generated content by campaign theme.",
+      "Convert podcast episodes into email content automatically.",
+      "Create mood board images using generative AI for campaign ideas."
+    ],
+    consulting: [
+      "Summarize discovery calls into structured proposals.",
+      "Auto-generate SOWs and client contracts from templates + notes.",
+      "Analyze meeting transcripts to surface key client pain points.",
+      "Use AI to convert handwritten workshop notes into reports.",
+      "Summarize case studies by industry for reuse in proposals.",
+      "Create a library of templated solutions by client sector using AI tagging.",
+      "Auto-categorize lead emails into hot/warm/cold using AI scoring.",
+      "Generate content for LinkedIn based on weekly activity summaries.",
+      "Summarize competitor strategies using market intelligence tools.",
+      "Use GPT to prep personalized sales outreach based on a client's website."
+    ],
+    nonprofit: [
+      "Summarize impact stories from interviews or call transcripts.",
+      "Generate grant proposal first drafts from program notes.",
+      "Translate donor surveys into segmented communication plans.",
+      "Auto-write thank-you letters using donation history.",
+      "Summarize data for board reports automatically.",
+      "Create fundraising campaign copy using past campaign performance.",
+      "Extract volunteer impact metrics from logs.",
+      "Create AI chatbots to answer volunteer FAQs.",
+      "Analyze donation trends and flag churn risk.",
+      "Generate monthly donor updates from staff journal entries."
+    ],
+    finance: [
+      "Use AI to detect anomalies in spending or income patterns.",
+      "Summarize client conversations into financial planning notes.",
+      "Create content for clients based on market trends.",
+      "Auto-generate tax prep checklists based on uploaded docs.",
+      "Classify business expenses using OCR + AI from receipts.",
+      "Forecast revenue using historical data and market indicators.",
+      "Create a GPT-powered assistant to answer financial literacy questions.",
+      "Analyze investment portfolios and generate risk profiles.",
+      "Summarize quarterly performance for client-facing reports.",
+      "Predict late payments based on behavioral data."
+    ],
+    custom: [
+      "Use AI to analyze internal docs and build a company knowledge assistant.",
+      "Summarize all Zoom calls into action items and decisions.",
+      "Auto-write FAQs and help articles from support chat logs.",
+      "Classify email inquiries into departments and urgency tiers.",
+      "Use AI to review job applications and flag top talent.",
+      "Transcribe team meetings and create follow-up tasks.",
+      "Build AI workflows to handle repetitive admin tasks (approvals, reviews).",
+      "Summarize legal contracts into key bullet points.",
+      "Monitor web mentions of your brand and summarize sentiment.",
+      "Predict bottlenecks in operations based on historic project data."
+    ]
+  };
+
+  // Pick a random tip
+  const selected = tips[industry] || tips["custom"];
+  const tip = selected[Math.floor(Math.random() * selected.length)];
+
+  document.getElementById("recommendation").innerText = tip;
+</script>
+
 </body>
 </html>
