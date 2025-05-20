@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AIgnite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <img src="assets/aignite-logo.png" alt="AIgnite Logo" style="max-width: 180px; display: block; margin: 0 auto 20px;" />
+
+  <h1>AIgnite Your Business Efficiency</h1>
+  <form method="POST" action="/api/submit">
+    <label>Your Business Name:</label>
+    <input type="text" name="business_name" required />
+
+    <label>What do you want AI to help with?</label>
+    <textarea name="goal" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
