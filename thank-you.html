@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Free AIgnite Tip</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(145deg, #0d0d0d, #1f1f1f);
+      color: #f4f4f4;
+      font-family: 'Outfit', sans-serif;
+      margin: 0;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .card {
+      max-width: 600px;
+      margin: auto;
+      background: rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+    }
+    h1 {
+      color: #00ffc8;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    p.tip {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 20px 0;
+    }
+    .paywall {
+      margin-top: 40px;
+      border-top: 1px solid #444;
+      padding-top: 30px;
+    }
+    .paywall h2 {
+      color: #00c896;
+    }
+    button {
+      margin-top: 20px;
+      background: #00ffc8;
+      color: #000;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 14px 30px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎉 Here’s Your Complimentary AI Tip</h1>
+    <p class="tip" id="recommendation">Loading your insight...</p>
+
+    <div class="paywall">
+      <h2>🔓 Unlock Your Full AI Opportunity Map</h2>
+      <p>Get 7+ personalized recommendations, tool stack suggestions, ROI projections, and risk alerts tailored to your business.</p>
+      <button onclick="alert('Redirect to payment - Stripe or Gumroad')">Unlock Full Report – $50</button>
+    </div>
+  </div>
+
+  <script>
+    const industry = new URLSearchParams(window.location.search).get('industry');
+    const tips = {
+      healthcare: "Use AI to summarize and auto-tag patient intake forms into EHRs in real-time — saving front desk teams hours per week.",
+      education: "AI can auto-generate personalized learning paths for each student based on quiz performance and engagement — most schools don’t use this at all.",
+      retail: "Train an AI to generate SEO-optimized product descriptions using competitor benchmarks — most shops still write these manually.",
+      realestate: "AI can pre-qualify inbound buyer/seller leads through natural conversation before you even pick up the phone.",
+      marketing: "Use AI to instantly repurpose client content across formats (tweets → LinkedIn → blog) — most teams still do this manually.",
+      consulting: "AI can auto-generate discovery call summaries and proposals in your voice — you talk, it writes.",
+      nonprofit: "Use AI to convert handwritten stories or call transcripts into compelling donor-ready impact reports.",
+      finance: "AI can monitor transaction data and proactively flag anomalies, reducing manual reconciliation and audit prep.",
+      custom: "Most businesses don't use AI to track and categorize internal conversations (Slack, meetings, emails) into actionable tasks — but you can."
+    };
+    const tip = tips[industry] || "AI can help automate repetitive tasks and uncover hidden insights — and we’ll show you exactly how.";
+    document.getElementById("recommendation").innerText = tip;
+  </script>
+</body>
+</html>

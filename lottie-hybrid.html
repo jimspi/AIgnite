@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AIgnite – Animated Hybrid</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lottie-web@latest/build/player/lottie.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      background: #0d0d0d;
+      color: white;
+      overflow-x: hidden;
+    }
+    .animation-container {
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 60px 20px;
+    }
+    .lottie-box {
+      width: 320px;
+      height: 320px;
+    }
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="animation-container">
+    <h1>See AIgnite in Action</h1>
+
+    <div class="lottie-box" id="spark"></div>
+    <div class="lottie-box" id="dataflow"></div>
+    <div class="lottie-box" id="rocket"></div>
+    <div class="lottie-box" id="logoReveal"></div>
+  </div>
+
+  <script>
+    const loadAnimation = (id, path, loop = false, delay = 0) => {
+      setTimeout(() => {
+        lottie.loadAnimation({
+          container: document.getElementById(id),
+          renderer: 'svg',
+          loop: loop,
+          autoplay: true,
+          path: path
+        });
+      }, delay);
+    };
+
+    loadAnimation("spark", "assets/lottie/spark.json", false, 0);
+    loadAnimation("dataflow", "assets/lottie/data.json", false, 1200);
+    loadAnimation("rocket", "assets/lottie/rocket.json", false, 2400);
+    loadAnimation("logoReveal", "assets/lottie/logo.json", false, 3600);
+  </script>
+</body>
+</html>
